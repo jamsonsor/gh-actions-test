@@ -1,10 +1,8 @@
 name: Publish Docker image
 
 on:
-  workflow_run:
-    workflows: ["Unit Tests"]
-    types:
-      - completed
+  push:
+    branches: [ main ]
 
 jobs:
   push_to_registry:
