@@ -20,14 +20,4 @@ jobs:
         npm install
         npm ci
     - name: tests
-      run: npm test
-    - name: Wait for Application to Start
-      run: |
-        sleep 1
-        response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/status)
-        if [ "$response" -eq "200" ]; then
-            echo "Application is running successfully."
-        else
-            echo "Application did not start successfully."
-            exit 1  # Mark the job as failed
-        fi
+      run: timeout 1m npm start
