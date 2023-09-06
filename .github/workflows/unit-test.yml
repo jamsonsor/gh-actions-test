@@ -19,5 +19,7 @@ jobs:
       run: |
         npm install
         npm ci
-    # - name: tests
-    #   run: timeout 1m npm start
+    - name: tests
+      run: |
+        echo "The tests would go here..."
+        run: timeout 1m npm start
